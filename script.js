@@ -77,7 +77,7 @@
 
 // }
 // start();
-
+    
 // let appData = {
 //     budget: money,
 //     timeData: time,
@@ -89,17 +89,17 @@
 //         for (let i = 0; i < 2; i++) {
 //             let a = prompt ("Введите обязательную статью расходов в этом месяце", ""),
 //                 b = prompt ("Во сколько обойдется?", "");
-
+        
 //             if ( typeof(a)==='string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 50) {
-
+        
 //                 console.log ("done");
-
+        
 //                 appData.expenses[a] = b;
 //             } else {
 //                 console.log ("bad result");
 //                 i--;
 //             }
-
+        
 //         }
 //     },
 //     detectDayBudget: function () {
@@ -121,7 +121,7 @@
 //         if (appData.savings == true) {
 //             let save = +prompt("Какова сумма накоплений?"),
 //                 percent = +prompt("Под какой процент?");
-
+    
 //                 appData.monthIncome = save/100/12*percent;
 //                 alert("Доход с Вашего депозита в месяц: " + appData.monthIncome);
 //         }
@@ -197,45 +197,48 @@
 
 
 
-/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
 
-// let box = document.getElementById("box"),
-//     button = document.querySelectorAll("button"),
-//     circle = document.querySelectorAll(".circle"),
-//     heart = document.querySelectorAll(".wrapper .heart");
+let box = document.getElementById('box'),
+    btn = document.getElementsByTagName('button'),
+    circle = document.getElementsByClassName('circle'),
+    heart = document.querySelectorAll('.heart'),
+    oneHeart = document.querySelector('.heart');
 
+box.style.backgroundColor = "green";
+btn[1].style.borderRadius = "100%";
 
-// box.style.backgroundColor = "yellow";
-// button[1].style.width = "500px";
-// button[1].style.backgroundColor = "pink";
+circle[0].style.backgroundColor = "red";
+circle[1].style.backgroundColor = "yellow";
+circle[2].style.backgroundColor = "green";
 
-// circle.forEach(function (item, i, massiv) {
-//     item.style.backgroundColor = "green";
-//     circle[i].style.border = "6px dotted pink";
-// });
+// for(let i = 0; i < heart.length; i++){
+//     heart[i].style.backgroundColor = "green";
+// };
 
+heart.forEach(function(item, i, massiv){
+    heart[i].style.backgroundColor = "black";
+    item.style.border = "5px solid red";
+    console.log(massiv);
+});
 
-// let arr = [10, 20, 30];
-// arr.forEach(function (item, index, array) {
-//     console.log(`Элемент: ${item}, Индекс: ${index}, Массив: ${array}`);
-// });
+let div = document.createElement('div'),
+    wrapper = document.querySelector('.wrapper'),
+    text = document.createTextNode('Тут был я');
 
+div.classList.add('black');
 
-// let newElem = document.createElement("div");
-// newElem.classList.add("newElem");
-// newElem.style.width = "100px";
-// newElem.style.height = "100px";
-// newElem.style.borderRadius = "100%";
-// newElem.style.display = "inline-block";
-// newElem.style.backgroundColor = "red";
+// document.body.appendChild(div);
+// wrapper.appendChild(div);
 
-// document.body.insertBefore(newElem, button[2]);
+// div.innerHTML = '<h1>Hello World!</h1>';
+div.textContent = 'Hello World!';
 
-// newElem.textContent = "GooD LucK!";
+document.body.insertBefore(div, circle[0]);
+document.body.removeChild(circle[1]);
+wrapper.removeChild(heart[1]);
 
-// document.body.remove(button[4]);
+document.body.replaceChild(btn[1], circle[1]);
 
-// document.body.replaceWith(circle[0], heart[2]);
-
-
+console.log(div);
 
